@@ -1,0 +1,5 @@
+{
+  "/api/auth/me": "/auth",
+  "/api/campaigns": "/campaigns",
+  "/api/users": "/users"
+}
