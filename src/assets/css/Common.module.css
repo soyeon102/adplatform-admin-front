@@ -1,0 +1,24 @@
+/* 텍스트 정렬 공통 css */
+.tac {
+  text-align: center;
+}
+
+.tal {
+  text-align: left;
+}
+
+.tar {
+  text-align: right;
+}
+
+/* 테이블 공통 css */
+.table {
+  width: 100%;
+}
+
+.thead th {
+  color: #999;
+  font-weight: bold;
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 16px;
+}

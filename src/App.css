@@ -4,3 +4,10 @@
   min-height: 100vh;
   margin: 0 auto;
 }
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px;
+  border-bottom: 1px solid #dbdbdb;
+}

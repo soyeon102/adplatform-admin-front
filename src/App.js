@@ -14,8 +14,18 @@ function App() {
   return (
     <div className='app'>
       <Gnb activeTab={activeTab} onClick={handleGnbClick} />
-      {activeTab === 0 && <Campaigns />}
-      {activeTab === 1 && <Users />}
+      {activeTab === 0 && (
+        <>
+          <h2 className='title'>캠페인 관리</h2>
+          <Campaigns />
+        </>
+      )}
+      {activeTab === 1 && (
+        <>
+          <h2 className='title'>사용자 관리</h2>
+          <Users />
+        </>
+      )}
     </div>
   );
 }

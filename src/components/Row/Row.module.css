@@ -1,0 +1,11 @@
+.row {
+  margin-bottom: 16px;
+}
+
+.modify-btn {
+  color: #348efc;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
