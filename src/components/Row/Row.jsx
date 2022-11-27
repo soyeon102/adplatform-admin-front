@@ -6,11 +6,18 @@ const Row = ({ content, isUser }) => {
     return Math.round(num * 100);
   };
 
+  const changeDateFormat = (val) => {
+    const date = new Date(val).toISOString().split('T')[0];
+    const time = new Date(val).toTimeString().split(' ')[0];
+
+    return `${date} ${time}`;
+  };
+
   return isUser ? (
     <tr className={classes.row}>
       <td>{content.email}</td>
       <td>{content.name}</td>
-      <td>{content.last_login_at}</td>
+      <td>{changeDateFormat(content.last_login_at)}</td>
       <td className={commonClass.tac}>
         <button className={classes['modify-btn']}>수정</button>
       </td>
