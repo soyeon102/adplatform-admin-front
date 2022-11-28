@@ -30,7 +30,6 @@ export const getCampaigns = createAsyncThunk(
 export const changeCampaignStatus = createAsyncThunk(
   'changeCampaignStatus',
   async (payload, thunkAPI) => {
-    console.log('payload!!!!!', payload);
     try {
       const response = await axios.patch(
         `${BASE_URL}/api/campaigns/${payload.id}`
@@ -38,7 +37,6 @@ export const changeCampaignStatus = createAsyncThunk(
         //   enabled: !payload.enabled,
         // }
       );
-      console.log('response!!!!!!!', response.data);
 
       return thunkAPI.fulfillWithValue(response.data);
     } catch (error) {
@@ -75,7 +73,6 @@ export const campaignsSlice = createSlice({
         //     : campaign
         // );
 
-        console.log('????', action.payload);
         // state.campaigns = action.payload;
       })
       .addCase(changeCampaignStatus.rejected, (state, action) => {
