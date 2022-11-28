@@ -2,6 +2,11 @@
   margin-bottom: 16px;
 }
 
+.row td {
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 16px;
+}
+
 .modify-btn {
   color: #348efc;
   background: transparent;

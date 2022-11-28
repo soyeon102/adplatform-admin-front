@@ -125,5 +125,8 @@ q:after {
 }
 table {
   border-collapse: separate;
-  border-spacing: 0 1rem;
+  border-spacing: 0 16px;
+}
+td {
+  vertical-align: middle;
 }

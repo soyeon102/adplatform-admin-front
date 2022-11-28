@@ -1,0 +1,13 @@
+.btn {
+  padding: 8px 12px;
+  background-color: #348efc;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn.gray {
+  color: black;
+  background-color: #ebebeb;
+}

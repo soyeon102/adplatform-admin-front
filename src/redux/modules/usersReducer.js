@@ -21,6 +21,19 @@ export const getUsers = createAsyncThunk(
   }
 );
 
+export const postUser = createAsyncThunk(
+  'postUser',
+  async (payload, thunkAPI) => {
+    try {
+      const response = await axios.post(`${BASE_URL}/api/users`, payload);
+
+      return thunkAPI.fulfillWithValue(response.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 export const usersSlice = createSlice({
   name: 'users',
   initialState,
@@ -35,6 +48,17 @@ export const usersSlice = createSlice({
         state.users = action.payload;
       })
       .addCase(getUsers.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(postUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(postUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.users.content = [...state.users.content, action.payload];
+      })
+      .addCase(postUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

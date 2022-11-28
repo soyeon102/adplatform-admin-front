@@ -16,8 +16,6 @@ const Users = () => {
     return <div>로딩중</div>;
   }
 
-  console.log(users);
-
   return (
     <table className={commonClass.table}>
       <colgroup>

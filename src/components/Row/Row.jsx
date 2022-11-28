@@ -1,7 +1,12 @@
+import Switch from '../Switch/Switch';
 import commonClass from '../../assets/css/Common.module.css';
 import classes from './Row.module.css';
+import { useDispatch } from 'react-redux';
+import { changeCampaignStatus } from '../../redux/modules/campaignsReducer';
 
 const Row = ({ content, isUser }) => {
+  const dispatch = useDispatch();
+
   const changeNum = (num) => {
     return Math.round(num * 100);
   };
@@ -11,6 +16,23 @@ const Row = ({ content, isUser }) => {
     const time = new Date(val).toTimeString().split(' ')[0];
 
     return `${date} ${time}`;
+  };
+
+  const changeObjective = (val) => {
+    switch (val) {
+      case 'WEBSITE_TRAFFIC':
+        return '웹사이트 트래픽';
+      case 'LEAD':
+        return '리드';
+      case 'VIDEO':
+        return '동영상 조회';
+      default:
+        return '없음';
+    }
+  };
+
+  const handleSwitchClick = (id, enabled) => {
+    dispatch(changeCampaignStatus({ id: id, enabled: enabled }));
   };
 
   return isUser ? (
@@ -24,9 +46,18 @@ const Row = ({ content, isUser }) => {
     </tr>
   ) : (
     <tr className={classes.row}>
-      <td className={commonClass.tac}>{content.enabled ? 'true' : 'false'}</td>
+      <td className={commonClass.tac}>
+        <Switch
+          status={content.enabled}
+          handleSwitchClick={() =>
+            handleSwitchClick(content.id, content.enabled)
+          }
+        />
+      </td>
       <td className={commonClass.tal}>{content.name}</td>
-      <td className={commonClass.tal}>{content.campaign_objective}</td>
+      <td className={commonClass.tal}>
+        {changeObjective(content.campaign_objective)}
+      </td>
       <td className={commonClass.tar}>
         {content.impressions.toLocaleString()}
       </td>
